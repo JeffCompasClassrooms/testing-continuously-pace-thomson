@@ -4,15 +4,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  unit-tests:
-    steps:
-      - name: Checkout testing systems
-        uses: actions/checkout@v4
-        with:
-          repository: JeffCompasClassrooms/testing-systems-pace-thomson
-          path: testing-systems-pace-thomson
-          ref: main # Checkout the 'main' branch of the shared library
-
+  system-tests:
     uses: JeffCompasClassrooms/testing-systems-pace-thomson/.github/workflows/run_tests.yml@main
 
   system-tests:
@@ -21,6 +13,16 @@ jobs:
   behave-tests:
     uses: JeffCompasClassrooms/testing-with-behave-pace-thomson/.github/workflows/run_tests_behave.yml@main
 
+
+# jobs:
+  # unit-tests:
+  #   steps:
+  #     - name: Checkout testing systems
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: JeffCompasClassrooms/testing-systems-pace-thomson
+  #         path: testing-systems-pace-thomson
+  #         ref: main # Checkout the 'main' branch of the shared library
 
 # name: Test Orchestrator
 
