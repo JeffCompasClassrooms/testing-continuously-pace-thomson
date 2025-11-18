@@ -8,7 +8,7 @@ jobs:
     uses: pacethomson/testing-systems-pace-thomson/.github/workflows/run_tests.yml@main
 
   system-tests:
-    uses: pacethomson/testing-units-pace-thomson/.github/workflows/run_tests.yml@main
+    uses: pacethomson/testing-units-f25-pace-thomson/.github/workflows/run_tests.yml@main
 
   behave-tests:
     uses: pacethomson/testing-with-behave-pace-thomson/.github/workflows/run_tests_behave.yml@main
