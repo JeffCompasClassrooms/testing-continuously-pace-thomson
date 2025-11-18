@@ -7,7 +7,7 @@ jobs:
   system-tests:
     uses: JeffCompasClassrooms/testing-systems-pace-thomson/.github/workflows/run_tests.yml@main
 
-  system-tests:
+  unit-tests:
     uses: JeffCompasClassrooms/testing-units-f25-pace-thomson/.github/workflows/run_tests.yml@main
 
   behave-tests:
