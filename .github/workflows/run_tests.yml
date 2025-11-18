@@ -5,13 +5,13 @@ on:
 
 jobs:
   unit-tests:
-    uses: your-username/unit-tests-repo/.github/workflows/run_tests.yml@main
+    uses: pacethomson/testing-systems-pace-thomson/.github/workflows/run_tests.yml@main
 
   system-tests:
-    uses: your-username/system-tests-repo/.github/workflows/run_tests.yml@main
+    uses: pacethomson/testing-units-pace-thomson/.github/workflows/run_tests.yml@main
 
   behave-tests:
-    uses: your-username/behave-tests-repo/.github/workflows/run_tests.yml@main
+    uses: pacethomson/testing-with-behave-pace-thomson/.github/workflows/run_tests_behave.yml@main
 
 
 # name: Test Orchestrator
