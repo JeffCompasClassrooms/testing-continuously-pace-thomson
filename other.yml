@@ -1,0 +1,48 @@
+name: Run Selenium + Behave Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+           python -m pip install behave==1.2.6 behave-webdriver==0.3.1 selenium==3.141.0 urllib3==1.26.18 six==1.16.0
+
+      - name: Install Chrome + ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+
+      - name: Add Chrome to PATH
+        run: |
+          echo "PATH=/usr/lib/chromium-browser/:$PATH" >> $GITHUB_ENV
+          echo "PATH=/usr/lib/chromium-browser/chromedriver:$PATH" >> $GITHUB_ENV
+
+      - name: Verify browser install
+        run: |
+          chromium-browser --version
+          chromedriver --version
+
+      # ----- Run Behave tests -----
+      - name: Run behave tests
+        run: |
+          echo "Running behave BDD tests"
+          python -m behave computing/features 
+          python -m behave isitchristmas/features 
+          python -m behave peppers-ghost/features 
+          python -m behave rockymountain/features 
